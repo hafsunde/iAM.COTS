@@ -48,10 +48,13 @@ get.POcor <- function(fit, sim_PO = NULL, boot.CI = FALSE) {
       as.data.frame() %>%
       rename(type = Row, estimate = Estimate, parameter = Col)
   } else if (is(fit$compute, "MxComputeBootstrap") & boot.CI) {
-    results <-   combine_SE(fit$est_PO$result, mxSE(est_PO, fit)) %>%
+    results <-
+      fit$est_PO$result %>%
       as.data.frame() %>%
-      rename(type = Row, estimate = Estimate, parameter = Col) %>%
-      mutate(lbound=NA_real_,ubound=NA_real_)
+      mutate(type = rownames(.)) %>%
+      pivot_longer(cols = where(is.numeric), names_to = "parameter", values_to ="estimate") %>%
+      mutate(lbound=NA_real_,ubound=NA_real_) %>%
+      as.data.frame()
     message("Calculating CIs from bootstrap samples")
     results_PO.boot  <- mxBootstrapEvalByName("est_PO", fit, bq=c(.025, .975))
     firstindex <-  c(1,4,7,10)
