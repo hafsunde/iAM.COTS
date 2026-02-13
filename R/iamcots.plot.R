@@ -32,8 +32,7 @@
 #'
 #' @details
 #' This function depends on ggplot2 and gridExtra. It also assumes the following
-#' functions exist in the package namespace: get.POcor(), get.varcomps(), and
-#' custom_theme(). The plotted parameters are hard-coded to specific est_var
+#' functions exist in the package namespace: get.POcor(), get.varcomps(). The plotted parameters are hard-coded to specific est_var
 #' and est_PO labels produced by the iAM-COTS model.
 #'
 #'
@@ -60,8 +59,7 @@ iamcots.plot <- function(fit, sim_vars = NULL, sim_PO = NULL, incl.sort = T, boo
               fontface="bold",
               color="black") +
 
-    custom_theme() +
-    scale_fill_viridis_d( end=.8, guide="none", option = "C") +
+    theme_bw() +
     scale_alpha_manual(values = c(raw = 1, AMinf=.5), labels = c(raw = "From index parent", AMinf= "Via co-parent"), breaks = c("raw", "AMinf")) +
     labs(title = "Decomposition of Parent-Offspring Correlation",
          alpha = "",y="", x="Parent-Offspring Correlation") +
@@ -92,9 +90,8 @@ iamcots.plot <- function(fit, sim_vars = NULL, sim_PO = NULL, incl.sort = T, boo
     geom_point(size=4) +
     geom_errorbar( width=0, linewidth =1) +
 
-    scale_fill_viridis_d(end = .85, guide="none", option = "C") +
     scale_y_continuous(labels=function(x) paste0(round(x*100),"%")) +
-    custom_theme() +
+    theme_bw() +
     geom_hline(yintercept = c(0,1), linewidth =1.5) +
     #guides(fill = guide_legend(override.aes = list(shape = NA)) ) +
     labs(title = "Variance Decomposition", subtitle = "Parental Phenotype",
@@ -120,9 +117,8 @@ iamcots.plot <- function(fit, sim_vars = NULL, sim_PO = NULL, incl.sort = T, boo
     geom_point(size=4) +
     geom_errorbar( width=0, linewidth =1) +
 
-    scale_fill_viridis_d(end = .85, guide="none", option = "C") +
     scale_y_continuous(labels=function(x) paste0(round(x*100),"%")) +
-    custom_theme() +
+    theme_bw() +
     geom_hline(yintercept = c(0,1), linewidth =1.5) +
     #guides(fill = guide_legend(override.aes = list(shape = NA)) ) +
     labs(title = "Variance Decomposition", subtitle = "Offspring Phenotype",
@@ -149,9 +145,8 @@ iamcots.plot <- function(fit, sim_vars = NULL, sim_PO = NULL, incl.sort = T, boo
     geom_point(size=4) +
     geom_errorbar( width=0, linewidth =1) +
 
-    scale_fill_viridis_d(end = .85, guide="none", option = "C") +
     scale_y_continuous(labels=function(x) paste0(round(x*100),"%")) +
-    custom_theme() +
+    theme_bw() +
     geom_hline(yintercept = c(0,1), linewidth =1.5) +
     #guides(fill = guide_legend(override.aes = list(shape = NA)) ) +
     labs(title = "Variance Decomposition", subtitle = "Parental Sorting Factor",
