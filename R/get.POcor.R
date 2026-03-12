@@ -34,8 +34,7 @@
 #' 3. Otherwise, standard errors are computed using mxSE() and converted
 #'    to confidence intervals using SEtoCI().
 #'
-#' This function assumes the helper functions combine_CI(), combine_SE(),
-#' and SEtoCI() are available in the package namespace.
+#' This function relies on combine_CI(), combine_SE(), and HFSutils::SEtoCI().
 #'
 #' @export
 
@@ -65,7 +64,7 @@ get.POcor <- function(fit, sim_PO = NULL, boot.CI = FALSE) {
       as.data.frame() %>%
       rename(type = Row, estimate = Estimate, parameter = Col) %>%
       mutate(lbound=NA_real_,ubound=NA_real_)
-    results[,c("lbound", "ubound")] <- SEtoCI(results$estimate, results$SE)
+    results[,c("lbound", "ubound")] <- HFSutils::SEtoCI(results$estimate, results$SE)
   }
 
   if (!is.null(sim_PO)) {
