@@ -49,6 +49,5 @@ quantiles are used.
 to confidence intervals using SEtoCI().
 }
 
-This function relies on \code{combine_CI()}, \code{combine_SE()}, and \code{HFSutils::SEtoCI()}.
-\code{HFSutils} is a GitHub dependency declared in DESCRIPTION.
+This function relies on combine_CI(), combine_SE(), and HFSutils::SEtoCI().
 }

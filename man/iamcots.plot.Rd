@@ -44,7 +44,6 @@ If simulated values are provided, they are overlaid as additional points
 on the relevant panels.
 
 This function depends on ggplot2 and gridExtra. It also assumes the following
-functions exist in the package namespace: get.POcor(), get.varcomps(), and
-custom_theme(). The plotted parameters are hard-coded to specific est_var
+functions exist in the package namespace: get.POcor(), get.varcomps(). The plotted parameters are hard-coded to specific est_var
 and est_PO labels produced by the iAM-COTS model.
 }

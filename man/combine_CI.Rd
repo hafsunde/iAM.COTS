@@ -8,7 +8,10 @@ combine_CI(M, CI)
 }
 \arguments{
 \item{M}{A numeric matrix of estimates (for example fit$est_PO$result).}
-\item{CI}{A confidence interval table, typically a subset of fit$output$confidenceIntervals, with rownames containing matrix indices in the form "[i,j]" and columns named "lbound" and "ubound".}
+
+\item{CI}{A confidence interval table, typically a subset of
+fit$output$confidenceIntervals, with rownames containing matrix indices in
+the form "\link{i,j}" and columns named "lbound" and "ubound".}
 }
 \value{
 A data.frame with columns Row, Col, Estimate, lbound, and ubound.

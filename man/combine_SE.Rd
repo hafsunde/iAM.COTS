@@ -8,7 +8,9 @@ combine_SE(M, SE)
 }
 \arguments{
 \item{M}{A numeric matrix of estimates.}
-\item{SE}{A numeric matrix of standard errors. Must have the same dimensions as M.}
+
+\item{SE}{A numeric matrix of standard errors. Must have the same dimensions
+as M.}
 }
 \value{
 A data.frame with columns Row, Col, Estimate, and SE.

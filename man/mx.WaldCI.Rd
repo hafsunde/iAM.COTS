@@ -8,8 +8,11 @@ mx.WaldCI(fit, object, is_correlation = FALSE)
 }
 \arguments{
 \item{fit}{An OpenMx model fit object.}
+
 \item{object}{Character. Name of the slot inside \code{fit} to extract, e.g. "A", "S", etc.}
-\item{is_correlation}{Logical. If TRUE, compute CI using Fisher z transform in \code{HFSutils::SEtoCI()}.}
+
+\item{is_correlation}{Logical. If TRUE, compute CI using Fisher z transform in
+\code{HFSutils::SEtoCI()}.}
 }
 \value{
 A data.frame with columns type, estimate, parameter, SE, lbound, ubound.
