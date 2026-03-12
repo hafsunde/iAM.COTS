@@ -33,8 +33,7 @@
 #' 3. Otherwise, standard errors are computed using mxSE() and converted to
 #'    confidence intervals using SEtoCI().
 #'
-#' This function assumes the helper function SEtoCI() is available in the
-#' package namespace.
+#' This function relies on HFSutils::SEtoCI().
 #'
 #' @seealso \code{\link[OpenMx]{mxSE}}, \code{\link[OpenMx]{mxBootstrapEvalByName}}
 #'
@@ -57,7 +56,7 @@ get.varcomps <- function(fit, sim_vars = NULL, boot.CI = FALSE) {
     message("Calculating CIs from bootstrap samples")
     results[,3:4] <- mxBootstrapEvalByName("est_var", fit, bq=c(.025, .975))[,2:3]
   } else {
-    results[,3:4] <- SEtoCI(results$estimate, as.vector(mxSE(est_var, fit)))
+    results[,3:4] <- HFSutils::SEtoCI(results$estimate, as.vector(mxSE(est_var, fit)))
   }
 
   if (!is.null(sim_vars)) {

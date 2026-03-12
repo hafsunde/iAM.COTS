@@ -8,19 +8,16 @@ mx.WaldCI(fit, object, is_correlation = FALSE)
 }
 \arguments{
 \item{fit}{An OpenMx model fit object.}
-
 \item{object}{Character. Name of the slot inside \code{fit} to extract, e.g. "A", "S", etc.}
-
-\item{is_correlation}{Logical. If TRUE, compute CI using Fisher z transform in \code{SEtoCI()}.}
+\item{is_correlation}{Logical. If TRUE, compute CI using Fisher z transform in \code{HFSutils::SEtoCI()}.}
 }
 \value{
 A data.frame with columns type, estimate, parameter, SE, lbound, ubound.
 }
 \description{
 Convenience wrapper to extract estimates and SEs from an OpenMx model slot
-and compute Wald confidence intervals via \code{SEtoCI()}.
+and compute Wald confidence intervals via \code{HFSutils::SEtoCI()}.
 }
 \details{
 This function assumes \code{OpenMx::mxSE()} works for the requested \code{object}.
-It is a personal helper and may fail for some model structures.
 }

@@ -48,8 +48,8 @@ quantiles are used via mxBootstrapEvalByName("est_var", ...).
 confidence intervals using SEtoCI().
 }
 
-This function assumes the helper function SEtoCI() is available in the
-package namespace.
+This function relies on \code{HFSutils::SEtoCI()}.
+\code{HFSutils} is a GitHub dependency declared in DESCRIPTION.
 }
 \seealso{
 \code{\link[OpenMx]{mxSE}}, \code{\link[OpenMx]{mxBootstrapEvalByName}}

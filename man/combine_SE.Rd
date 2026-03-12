@@ -8,29 +8,12 @@ combine_SE(M, SE)
 }
 \arguments{
 \item{M}{A numeric matrix of estimates.}
-
-\item{SE}{A numeric matrix of standard errors. Must have the same dimensions
-as M.}
+\item{SE}{A numeric matrix of standard errors. Must have the same dimensions as M.}
 }
 \value{
-A data.frame with columns:
-\itemize{
-\item Row: row name (or row index if rownames are missing)
-\item Col: column name (or column index if colnames are missing)
-\item Estimate: the estimate for the cell
-\item SE: the standard error for the cell
-}
+A data.frame with columns Row, Col, Estimate, and SE.
 }
 \description{
 Converts a matrix of estimates and a matrix of standard errors of the same
 dimension into a long data.frame with one row per cell.
-}
-\details{
-If rownames(M) or colnames(M) are NULL, they are replaced by character
-versions of the corresponding indices (1..nrow, 1..ncol).
-
-This function does not check that SE is conformable beyond relying on
-as.vector() recycling rules; mismatched dimensions will silently produce
-wrong results. Prefer to add an explicit dimension check if this becomes
-user-facing.
 }
