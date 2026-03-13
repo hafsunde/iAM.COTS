@@ -20,7 +20,8 @@
 #' Pair ids are based on full identifiers (canonicalized with `pmin/pmax` logic),
 #' not truncated substrings.
 #'
-#' @export
+#' @keywords internal
+#' @noRd
 find.sibs <- function(pedigree,
                       type,
                       proband = "proband",

@@ -3,7 +3,6 @@
 export(combine_CI)
 export(combine_SE)
 export(cots.spine.fun)
-export(find.sibs)
 export(get.POcor)
 export(get.varcomps)
 export(iam.cots.fun)
