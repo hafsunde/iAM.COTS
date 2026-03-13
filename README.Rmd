@@ -36,16 +36,6 @@ The package currently exposes the following user-facing functions:
 - `get.POcor()` extracts the parent-offspring correlation decomposition from a
   fitted model.
 - `iamcots.plot()` creates a summary plot of model results.
-- `cots.spine.fun()` builds extended family units from cohort, ancestry, and
-  twin-register data. The current selection procedure is deterministic, avoids
-  re-using parent IDs across rows, and prioritizes family types in the order
-  `MZ > DZ > UZ > HS > FS` (with `UZ` optional).
-- `join.phenotypes()` attaches child and parent phenotypes to the spine created
-  by `cots.spine.fun()`.
-- `sex.invariant.fun()` remaps sex-specific parent columns into sex-invariant
-  sibling/spouse columns for model input.
-- `z.pheno()` applies pooled z-standardization across selected phenotype
-  columns.
 - `mx.WaldCI()` extracts Wald standard errors and confidence intervals from
   OpenMx objects.
 - `combine_SE()` reshapes an estimate matrix and an SE matrix into long format.
@@ -62,15 +52,25 @@ result-extraction helper functions may be needlessly hardcoded and brittle.
 These helper functions are mainly included because I have used them 
 personally to help work with `iam.cots.fun()`.
 
-By contrast, the data-preparation helper functions
-(`cots.spine.fun()`, `join.phenotypes()`, `sex.invariant.fun()`, and
-`z.pheno()`) have recently been
-refurbished/refactored. They have unit tests and basic synthetic-data
-checks, but they have **not yet been validated on real project data**. 
-I originally used older tidyverse-based versions of these functions, 
-which I have not uploaded here. 
-Those helper functions should therefore still be treated as
-provisional data preparation code until they have been cross-checked
-against real data.
+By contrast, recent data-preparation helper functions are still provisional and
+have now been moved out of the package namespace to avoid masking similarly
+named objects when loading `iAM.COTS`.
+
+### New data-preparation script location
+
+The following helpers are now available as scripts under `inst/scripts/` rather
+than exported package functions:
+
+- `cots.spine.fun()`
+- `join.phenotypes()`
+- `sex.invariant.fun()`
+- `z.pheno()`
+- internal support helpers used by those functions (for example
+  `find.sibs()`, `fam.join()`, and `pair.reducer()`).
+
+These scripts are included in the installed package for reference/reuse, while
+the attached package API remains focused on the validated modeling and output
+extraction functions.
+See `NEWS.md` for a changelog entry listing these newly relocated helpers.
 
 
